@@ -1,27 +1,27 @@
-# Web Scraping with Crawlee
+# Web-Scraping mit Crawlee
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.com/) 
+[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.de/) 
 
-Learn how to use Crawlee for efficient [web scraping with Node.js](https://brightdata.com/blog/how-tos/web-scraping-with-node-js):
+Erfahren Sie, wie Sie Crawlee für effizientes [Web-Scraping mit Node.js](https://brightdata.de/blog/how-tos/web-scraping-with-node-js) verwenden:
 
-- [Basic Web Scraping with Crawlee](#basic-web-scraping-with-crawlee)
-- [Proxy Rotation with Crawlee](#proxy-rotation-with-crawlee)
-- [Sessions Management with Crawlee](#sessions-management-with-crawlee)
-- [Dynamic Content Handling with Crawlee](#dynamic-content-handling-with-crawlee)
+- [Grundlegendes Web-Scraping mit Crawlee](#basic-web-scraping-with-crawlee)
+- [Proxy-Rotation mit Crawlee](#proxy-rotation-with-crawlee)
+- [Sitzungsverwaltung mit Crawlee](#sessions-management-with-crawlee)
+- [Umgang mit dynamischen Inhalten mit Crawlee](#dynamic-content-handling-with-crawlee)
 
 ## Prerequisites
 
-Before you start, make sure you have the following prerequisites installed:
+Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgenden Voraussetzungen installiert haben:
 
 * **[Node.js](https://nodejs.org/).**
-* **[npm](https://www.npmjs.com/):** This typically comes with Node.js. You can verify the installation by running `node -v` or `npm -v` in your terminal.
-* **A code editor of your choice:** This tutorial uses [Visual Studio Code](https://code.visualstudio.com/).
+* **[npm](https://www.npmjs.com/):** Dies ist in der Regel in Node.js enthalten. Sie können die Installation überprüfen, indem Sie `node -v` oder `npm -v` in Ihrem Terminal ausführen.
+* **Ein Code-Editor Ihrer Wahl:** Dieses Tutorial verwendet [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Basic Web Scraping with Crawlee
 
-Let’s start by scraping the [Books to Scrape](https://books.toscrape.com/) website.
+Beginnen wir damit, die Website [Books to Scrape](https://books.toscrape.com/) zu scrapen.
 
-Open your terminal or shell and initialize a Node.js project:
+Öffnen Sie Ihr Terminal oder Ihre Shell und initialisieren Sie ein Node.js-Projekt:
 
 ```bash
 mkdir crawlee-tutorial
@@ -29,25 +29,25 @@ cd crawlee-tutorial
 npm init -y
 ```
 
-Install the Crawlee library:
+Installieren Sie die Crawlee-Bibliothek:
 
 ```bash
 npm install crawlee
 ```
 
-To scrape data effectively, inspect the target website’s HTML structure. Open the site in your browser, right-click anywhere on the page, and select **Inspect** or **Inspect Element** in **Developer Tools**.
+Um Daten effektiv zu scrapen, prüfen Sie die HTML-Struktur der Ziel-Website. Öffnen Sie die Website in Ihrem Browser, klicken Sie mit der rechten Maustaste irgendwo auf die Seite und wählen Sie **Inspect** oder **Inspect Element** in den **Developer Tools**.
 
 ![Inspect HTML element](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Inspect-HTML-element-1024x540.png)
 
-The **Elements** tab in **Developer Tools** displays the page’s HTML layout. In this example:  
+Der Tab **Elements** in den **Developer Tools** zeigt das HTML-Layout der Seite. In diesem Beispiel:  
 
-- Each book is inside an `article` tag with the class `product_pod`.  
-- The book title is in an `h3` tag, with the actual title stored in the `title` attribute of the nested `a` tag.  
-- The book price is inside a `p` tag with the class `price_color`.  
+- Jedes Buch befindet sich innerhalb eines `article`-Tags mit der Klasse `product_pod`.  
+- Der Buchtitel befindet sich in einem `h3`-Tag, wobei der eigentliche Titel im `title`-Attribut des verschachtelten `a`-Tags gespeichert ist.  
+- Der Buchpreis befindet sich innerhalb eines `p`-Tags mit der Klasse `price_color`.  
 
 ![Inspect the HTML elements on the Books to Scrape website](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Inspect-the-HTML-elements-on-the-Books-to-Scrape-website-1024x522.png)
 
-Under the root directory of your project, create a file named `scrape.js` and add the following code:
+Erstellen Sie im Root-Verzeichnis Ihres Projekts eine Datei mit dem Namen `scrape.js` und fügen Sie den folgenden Code hinzu:
 
 ```js
 const { CheerioCrawler } = require('crawlee');
@@ -67,15 +67,15 @@ const crawler = new CheerioCrawler({
 crawler.run(['https://books.toscrape.com/']);
 ```
 
-This code uses `CheerioCrawler` from `crawlee` to extract book titles and prices from `https://books.toscrape.com/`. It fetches the HTML, selects `<article class="product_pod">` elements using jQuery-like syntax, and logs the results to the console.
+Dieser Code verwendet `CheerioCrawler` aus `crawlee`, um Buchtitel und Preise von `https://books.toscrape.com/` zu extrahieren. Er ruft das HTML ab, wählt `<article class="product_pod">`-Elemente mit einer jQuery-ähnlichen Syntax aus und protokolliert die Ergebnisse in der Konsole.
 
-After adding the code to your `scrape.js` file, run it with the following command:
+Nachdem Sie den Code zu Ihrer Datei `scrape.js` hinzugefügt haben, führen Sie ihn mit folgendem Befehl aus:
 
 ```bash
 node scrape.js
 ```
 
-An array of book titles and prices should print to your terminal:
+Ein Array mit Buchtiteln und Preisen sollte in Ihrem Terminal ausgegeben werden:
 
 ```
 …output omitted…
@@ -99,37 +99,37 @@ An array of book titles and prices should print to your terminal:
 
 ## Proxy Rotation with Crawlee
 
-A proxy acts as a middleman between your computer and the internet, forwarding your web requests while masking your IP address. This helps prevent rate limits and IP bans.
+Ein Proxy fungiert als Zwischenstation zwischen Ihrem Computer und dem Internet, leitet Ihre Web-Anfragen weiter und maskiert dabei Ihre IP-Adresse. Dies hilft dabei, Ratenbegrenzungen und IP-Sperren zu verhindern.
 
-Crawlee simplifies proxy implementation with built-in handling for retries, errors, and rotating proxies.
+Crawlee vereinfacht die Proxy-Implementierung durch integrierte Verarbeitung von Wiederholungsversuchen, Fehlern und rotierenden Proxies.
 
-Next, you'll set up a proxy, obtain a valid proxy address, and verify your requests are routed through it.
+Als Nächstes richten Sie einen Proxy ein, beschaffen eine gültige Proxy-Adresse und überprüfen, dass Ihre Anfragen darüber geroutet werden.
 
-Since free proxies are often slow, insecure, and unreliable for sensitive web tasks, consider using a trusted service like Bright Data, which provides secure, stable, and reliable proxies. It also offers free trials, allowing you to test the service before committing. 
+Da kostenlose Proxies oft langsam, unsicher und unzuverlässig für sensible Web-Aufgaben sind, sollten Sie die Nutzung eines vertrauenswürdigen Dienstes wie Bright Data in Betracht ziehen, der sichere, stabile und zuverlässige Proxies bereitstellt. Außerdem bietet der Dienst kostenlose Testversionen, damit Sie den Service testen können, bevor Sie sich festlegen. 
 
-To use Bright Data, click the **Start free trial** button on their [home page](https://brightdata.com/) and fill in the required information to create an account.
+Um Bright Data zu verwenden, klicken Sie auf der [Startseite](https://brightdata.de/) auf die Schaltfläche **Start free trial** und füllen Sie die erforderlichen Informationen aus, um ein Konto zu erstellen.
 
-Once your account is created, log in to the Bright Data dashboard, navigate to **Proxies & Scraping Infrastructure**, and add a new proxy by selecting **[Residential Proxies](/proxy-types/residential-proxies)**:
+Sobald Ihr Konto erstellt ist, melden Sie sich im Bright Data-Dashboard an, navigieren Sie zu **Proxies & Scraping Infrastructure** und fügen Sie einen neuen Proxy hinzu, indem Sie **[Residential Proxies](/proxy-types/residential-proxies)** auswählen:
 
 ![Add a residential proxy](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Add-a-residential-proxy-1024x574.png)
 
-Retain the default settings and finalize the creation of your residential proxy by clicking **Add**.
+Behalten Sie die Standardeinstellungen bei und schließen Sie die Erstellung Ihres Residential Proxy ab, indem Sie auf **Add** klicken.
 
-If you are asked to install a certificate, you can select **Proceed without certificate**. However, for production and real use cases, you should set up the certificate to prevent misuse if your proxy information is ever exposed.
+Wenn Sie aufgefordert werden, ein Zertifikat zu installieren, können Sie **Proceed without certificate** auswählen. Für Produktion und echte Anwendungsfälle sollten Sie jedoch das Zertifikat einrichten, um Missbrauch zu verhindern, falls Ihre Proxy-Informationen jemals offengelegt werden.
 
-Once created, take note of the proxy credentials, including the host, port, username, and password. You need these in the next step:
+Notieren Sie nach der Erstellung die Proxy-Anmeldedaten, einschließlich Host, Port, Username und Password. Sie benötigen diese im nächsten Schritt:
 
 ![Bright Data proxy credentials](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Bright-Data-proxy-credentials-1024x557.png)
 
-Under the root directory of your project, run the following command to install the [axios](https://www.npmjs.com/package/axios) library:
+Führen Sie im Root-Verzeichnis Ihres Projekts den folgenden Befehl aus, um die Bibliothek [axios](https://www.npmjs.com/package/axios) zu installieren:
 
 ```bash
 npm install axios
 ```
 
-The `axios` library is used to send a GET request to `http://lumtest.com/myip.json`, which returns details about the proxy in use.
+Die Bibliothek `axios` wird verwendet, um eine GET-Anfrage an `http://lumtest.com/myip.json` zu senden, die Details über den verwendeten Proxy zurückgibt.
 
-To implement this, create a file named `scrapeWithProxy.js` in your project's root directory and add the following code:
+Um dies zu implementieren, erstellen Sie im Root-Verzeichnis Ihres Projekts eine Datei namens `scrapeWithProxy.js` und fügen Sie den folgenden Code hinzu:
 
 ```js
 const { CheerioCrawler } = require("crawlee");
@@ -175,21 +175,21 @@ crawler.run(["https://books.toscrape.com/"]);
 
 > **Note:**
 > 
-> Make sure to replace the `HOST`, `PORT`, `USERNAME`, and `PASSWORD` with your credentials.
+> Stellen Sie sicher, dass Sie `HOST`, `PORT`, `USERNAME` und `PASSWORD` durch Ihre Zugangsdaten ersetzen.
 
-This code uses `CheerioCrawler` from `crawlee` to scrape data from `https://books.toscrape.com/` while routing requests through a specified proxy.  
+Dieser Code verwendet `CheerioCrawler` aus `crawlee`, um Daten von `https://books.toscrape.com/` zu scrapen, während Anfragen über einen angegebenen Proxy geroutet werden.  
 
-- The proxy is configured using `ProxyConfiguration`.  
-- A GET request to `http://lumtest.com/myip.json` fetches and logs proxy details.  
-- Book titles and prices are extracted using Cheerio’s jQuery-like syntax and logged to the console.  
+- Der Proxy wird mit `ProxyConfiguration` konfiguriert.  
+- Eine GET-Anfrage an `http://lumtest.com/myip.json` ruft Proxy-Details ab und protokolliert sie.  
+- Buchtitel und Preise werden mit Cheerio’s jQuery-ähnlicher Syntax extrahiert und in der Konsole protokolliert.  
 
-Run the code to test the proxy setup and verify its functionality:
+Führen Sie den Code aus, um das Proxy-Setup zu testen und seine Funktionalität zu überprüfen:
 
 ```bash
 node scrapeWithProxy.js
 ```
 
-You’ll see similar results to before, but this time, your requests are routed through Bright Data proxies. You should also see the details of the proxy logged in the console:
+Sie sehen ähnliche Ergebnisse wie zuvor, aber diesmal werden Ihre Anfragen über Bright Data-Proxies geroutet. Sie sollten außerdem die Details des Proxys in der Konsole protokolliert sehen:
 
 ```js
 Proxy Information: {
@@ -217,17 +217,17 @@ Proxy Information: {
 …output omitted..
 ```
 
-Running the script with `node scrapingWithBrightData.js` should display a different IP address each time, confirming that Bright Data rotates locations and IPs automatically. This rotation helps prevent blockages and IP bans when scraping websites.
+Das Ausführen des Skripts mit `node scrapingWithBrightData.js` sollte jedes Mal eine andere IP-Adresse anzeigen und bestätigen, dass Bright Data Standorte und IPs automatisch rotiert. Diese Rotation hilft, Blockierungen und IP-Sperren beim Scraping von Websites zu verhindern.
 
 > **Note:**
 > 
-> In the `proxyConfiguration`, you could have passed different proxy IPs, but since Bright Data does that for you, you don’t need to specify the IPs.
+> In der `proxyConfiguration` hätten Sie unterschiedliche Proxy-IPs übergeben können, aber da Bright Data das für Sie übernimmt, müssen Sie die IPs nicht angeben.
 
 ## Sessions Management with Crawlee
 
-Sessions help maintain state across multiple requests, especially for sites using cookies or login sessions.  
+Sitzungen helfen dabei, den Zustand über mehrere Anfragen hinweg beizubehalten, insbesondere bei Websites, die Cookies oder Login-Sitzungen verwenden.  
 
-To implement session management, create a file named `scrapeWithSessions.js` in your project's root directory and add the following code:
+Um Sitzungsverwaltung zu implementieren, erstellen Sie im Root-Verzeichnis Ihres Projekts eine Datei namens `scrapeWithSessions.js` und fügen Sie den folgenden Code hinzu:
 
 ```js
 const { CheerioCrawler, SessionPool } = require("crawlee");
@@ -269,19 +269,19 @@ const { CheerioCrawler, SessionPool } = require("crawlee");
 })();
 ```
 
-This code uses `CheerioCrawler` and `SessionPool` from `crawlee` to scrape data from `https://books.toscrape.com/`.  
+Dieser Code verwendet `CheerioCrawler` und `SessionPool` aus `crawlee`, um Daten von `https://books.toscrape.com/` zu scrapen.  
 
-- A session pool is initialized and assigned to the crawler.  
-- The `requestHandler` logs session details and extracts book titles and prices using Cheerio selectors.  
-- The script performs two consecutive scraping runs, logging the session ID each time.  
+- Ein SessionPool wird initialisiert und dem Crawler zugewiesen.  
+- Der `requestHandler` protokolliert Sitzungsdetails und extrahiert Buchtitel und Preise mit Cheerio-Selektoren.  
+- Das Skript führt zwei aufeinanderfolgende Scraping-Läufe aus und protokolliert jedes Mal die session ID.  
 
-Run the code to verify that different sessions are being used.
+Führen Sie den Code aus, um zu überprüfen, dass unterschiedliche Sitzungen verwendet werden.
 
 ```bash
 node scrapeWithSessions.js
 ```
 
-You should see similar results as before, but this time—with the session ID for each run:
+Sie sollten ähnliche Ergebnisse wie zuvor sehen, aber diesmal mit der session ID für jeden Lauf:
 
 ```
 Using session: session_GmKuZ2TnVX
@@ -296,17 +296,17 @@ Using session: session_lNRxE89hXu
 …output omitted…
 ```
 
-If you run the code again, you should see that a different session ID is being used.
+Wenn Sie den Code erneut ausführen, sollten Sie sehen, dass eine andere session ID verwendet wird.
 
 ## Dynamic Content Handling with Crawlee
 
-Scraping **dynamic websites** (those that load content via JavaScript) can be challenging, as data is only available after rendering.  
+Das Scraping **dynamischer Websites** (die Inhalte über JavaScript laden) kann herausfordernd sein, da Daten erst nach dem Rendern verfügbar sind.  
 
-To handle this, Crawlee integrates with [Puppeteer](https://pptr.dev/), a headless browser that renders JavaScript and interacts with web pages like a human.  
+Um damit umzugehen, integriert sich Crawlee mit [Puppeteer](https://pptr.dev/), einem Headless-Browser, der JavaScript rendert und mit Webseiten wie ein Mensch interagiert.  
 
-For demonstration, we'll scrape content from [this YouTube page](https://www.youtube.com/watch?v=wZ6cST5pexo). **Before scraping, always review the site's rules and terms of service.**  
+Zur Demonstration scrapen wir Inhalte von [dieser YouTube-Seite](https://www.youtube.com/watch?v=wZ6cST5pexo). **Überprüfen Sie vor dem Scraping immer die Regeln und Nutzungsbedingungen der Website.**  
 
-After reviewing the terms, create a file named `scrapeDynamicContent.js` in your project's root directory and add the following code:
+Nachdem Sie die Bedingungen überprüft haben, erstellen Sie im Root-Verzeichnis Ihres Projekts eine Datei namens `scrapeDynamicContent.js` und fügen Sie den folgenden Code hinzu:
 
 ```js
 const { PuppeteerCrawler } = require("crawlee");
@@ -341,19 +341,19 @@ async function scrapeYouTube() {
 scrapeYouTube();
 ```
 
-Then, run the code with the following command:
+Führen Sie den Code anschließend mit folgendem Befehl aus:
 
 ```bash
 node scrapeDynamicContent.js
 ```
 
-This code uses `PuppeteerCrawler` from Crawlee to scrape comments from a YouTube video.  
+Dieser Code verwendet `PuppeteerCrawler` aus Crawlee, um Kommentare aus einem YouTube-Video zu scrapen.  
 
-- The crawler navigates to a specific YouTube video URL and waits for the page to fully load.  
-- It selects the first ten comments using the CSS selector `#comments #content-text`.  
-- Extracted comments are logged to the console.  
+- Der Crawler navigiert zu einer bestimmten YouTube-Video-URL und wartet, bis die Seite vollständig geladen ist.  
+- Er wählt die ersten zehn Kommentare mit dem CSS-Selektor `#comments #content-text` aus.  
+- Extrahierte Kommentare werden in der Konsole protokolliert.  
 
-When executed, the script will output the first ten comments from the selected video.
+Bei der Ausführung gibt das Skript die ersten zehn Kommentare des ausgewählten Videos aus.
 
 ```
 INFO  PuppeteerCrawler: Starting the crawler.
@@ -370,10 +370,10 @@ I like this style, no youtube funny business. Just straight to the lifts
 …output omitted…
 ```
 
-You can find all the code used in this tutorial on [GitHub](https://github.com/See4Devs/crawlee-web-scraping).
+Sie finden den gesamten in diesem Tutorial verwendeten Code auf [GitHub](https://github.com/See4Devs/crawlee-web-scraping).
 
 ## Conclusion
 
-Crawlee can help improve the efficiency and reliability of your web scraping projects. Ready to elevate your web scraping projects with professional-grade data, tools, and proxies? Explore the comprehensive web scraping platform of Bright Data, offering [ready-to-use datasets](https://brightdata.com/products/datasets) and [advanced proxy services](https://brightdata.com/proxy-types) to streamline your data collection efforts.
+Crawlee kann helfen, die Effizienz und Zuverlässigkeit Ihrer Web-Scraping-Projekte zu verbessern. Sind Sie bereit, Ihre Web-Scraping-Projekte mit professionellen Daten, Tools und Proxies auf das nächste Level zu heben? Entdecken Sie die umfassende Web-Scraping-Plattform von Bright Data, die [einsatzbereite Datensätze](https://brightdata.de/products/datasets) und [fortschrittliche Proxy-Services](https://brightdata.de/proxy-types) bietet, um Ihre Datenerfassung zu optimieren.
 
-Sign up now and start your free trial!
+Registrieren Sie sich jetzt und starten Sie Ihre kostenlose Testversion!
