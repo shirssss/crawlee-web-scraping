@@ -1,6 +1,6 @@
 # Web-Scraping mit Crawlee
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.de/) 
+[![Promo](https://github.com/bright-data-de/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.de/) 
 
 Erfahren Sie, wie Sie Crawlee für effizientes [Web-Scraping mit Node.js](https://brightdata.de/blog/how-tos/web-scraping-with-node-js) verwenden:
 
@@ -37,7 +37,7 @@ npm install crawlee
 
 Um Daten effektiv zu scrapen, prüfen Sie die HTML-Struktur der Ziel-Website. Öffnen Sie die Website in Ihrem Browser, klicken Sie mit der rechten Maustaste irgendwo auf die Seite und wählen Sie **Inspect** oder **Inspect Element** in den **Developer Tools**.
 
-![Inspect HTML element](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Inspect-HTML-element-1024x540.png)
+![Inspect HTML element](https://github.com/bright-data-de/crawlee-web-scraping/blob/main/images/Inspect-HTML-element-1024x540.png)
 
 Der Tab **Elements** in den **Developer Tools** zeigt das HTML-Layout der Seite. In diesem Beispiel:  
 
@@ -45,7 +45,7 @@ Der Tab **Elements** in den **Developer Tools** zeigt das HTML-Layout der Seite.
 - Der Buchtitel befindet sich in einem `h3`-Tag, wobei der eigentliche Titel im `title`-Attribut des verschachtelten `a`-Tags gespeichert ist.  
 - Der Buchpreis befindet sich innerhalb eines `p`-Tags mit der Klasse `price_color`.  
 
-![Inspect the HTML elements on the Books to Scrape website](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Inspect-the-HTML-elements-on-the-Books-to-Scrape-website-1024x522.png)
+![Inspect the HTML elements on the Books to Scrape website](https://github.com/bright-data-de/crawlee-web-scraping/blob/main/images/Inspect-the-HTML-elements-on-the-Books-to-Scrape-website-1024x522.png)
 
 Erstellen Sie im Root-Verzeichnis Ihres Projekts eine Datei mit dem Namen `scrape.js` und fügen Sie den folgenden Code hinzu:
 
@@ -111,7 +111,7 @@ Um Bright Data zu verwenden, klicken Sie auf der [Startseite](https://brightdata
 
 Sobald Ihr Konto erstellt ist, melden Sie sich im Bright Data-Dashboard an, navigieren Sie zu **Proxies & Scraping Infrastructure** und fügen Sie einen neuen Proxy hinzu, indem Sie **[Residential Proxies](/proxy-types/residential-proxies)** auswählen:
 
-![Add a residential proxy](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Add-a-residential-proxy-1024x574.png)
+![Add a residential proxy](https://github.com/bright-data-de/crawlee-web-scraping/blob/main/images/Add-a-residential-proxy-1024x574.png)
 
 Behalten Sie die Standardeinstellungen bei und schließen Sie die Erstellung Ihres Residential Proxy ab, indem Sie auf **Add** klicken.
 
@@ -119,7 +119,7 @@ Wenn Sie aufgefordert werden, ein Zertifikat zu installieren, können Sie **Proc
 
 Notieren Sie nach der Erstellung die Proxy-Anmeldedaten, einschließlich Host, Port, Username und Password. Sie benötigen diese im nächsten Schritt:
 
-![Bright Data proxy credentials](https://github.com/luminati-io/crawlee-web-scraping/blob/main/images/Bright-Data-proxy-credentials-1024x557.png)
+![Bright Data proxy credentials](https://github.com/bright-data-de/crawlee-web-scraping/blob/main/images/Bright-Data-proxy-credentials-1024x557.png)
 
 Führen Sie im Root-Verzeichnis Ihres Projekts den folgenden Befehl aus, um die Bibliothek [axios](https://www.npmjs.com/package/axios) zu installieren:
 
